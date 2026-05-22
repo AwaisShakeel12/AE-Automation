@@ -1,4 +1,3 @@
-
 import json
 import os
 import re
@@ -22,7 +21,7 @@ LATEST_SCRIPT = {
 
 def get_api_key() -> str:
     # Keep your current style as requested.
-    api_key = os.getenv("GEMINI_API_KEY", "").strip()
+    api_key = os.getenv("GOOGLE_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError(
             "Missing GEMINI_API_KEY. Set it in your environment before running the app."
@@ -34,7 +33,7 @@ def get_llm() -> ChatGoogleGenerativeAI:
     return ChatGoogleGenerativeAI(
         
         model="gemini-3.5-flash",
-        google_api_key=os.getenv("GEMINI_API_KEY", "").strip(),
+        google_api_key=os.getenv("GOOGLE_API_KEY", "").strip(),
         temperature=0.2,
     )
 
