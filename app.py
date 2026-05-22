@@ -14,10 +14,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 app = FastAPI(title="After Effects AI Starter", version="1.1.0")
 
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
-
 api_key = GOOGLE_API_KEY
-
-print(api_key)
+llm = ChatGoogleGenerativeAI(model='gemini-flash-latest', api_key=api_key)
 
 
 LATEST_SCRIPT = {
@@ -40,8 +38,8 @@ def get_llm() -> ChatGoogleGenerativeAI:
     return ChatGoogleGenerativeAI(
         
         model="gemini-3.5-flash",
-        google_api_key=api_key,
-        temperature=0.2,
+        api_key=api_key
+        
     )
 
 
